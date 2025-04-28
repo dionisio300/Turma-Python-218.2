@@ -1,0 +1,43 @@
+
+Repositório criado primeiro no github
+=================================================
+echo "#readme.md" >> readme.md
+git init -> inicializa o repositório local
+git add . ou 'nome do arquivo' -> adiciona os arquivos para serem versionados pelo git
+git commit -m "Mensagem com as mudanças implementadas"
+git branch -M main ->  muda o nome da branch
+git add origin https://..... -> adicionar o repositório remoto e fazer com que ele sincronize com o seu repositório local
+git push -u origin main -> Enviar as alterações para o repositório criado anteriormente
+
+clonar o seu repositório 
+=============================================================
+git clone https://....
+cd 'nome do projeto git'
+trabalho normal -> git add . -> git commit -m 'msg' -> git push
+
+Criar um projeto na sua máquina local e sincronizar com um repositório no github
+=============================================================
+git init
+git add .
+git commit -m "msg"
+git remote add origin https://.....
+git push -u origin main
+
+
+Clonar um repositório de alguém para iniciar a partir dali um projeto seu
+===========================================================
+git clone https://link do projeto a ser clonado
+cd 'nome da pasta do projeto'
+git remote remove origin
+git remote add origin https:// link do seu repositório
+git branch -M main
+git push -u origin main
+===========================================================
+
+
+=============================================================
+
+ Depois que o repositório estiver configurado os comando padrão serão:
+ git add . ou 'nome do arquivo'
+ git commit -m 'Explicação das mudanças'
+ git push
