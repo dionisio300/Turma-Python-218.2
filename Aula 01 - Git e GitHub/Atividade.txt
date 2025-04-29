@@ -1,0 +1,13 @@
+1 - Troque o computador que você está agora
+
+2 - Crie um repositório no github chamado projeto1 e depois de inicia-lo no github inicializa ele na sua máquina.
+
+3 - Crie uma pasta no seu computador chamada projeto2 e depois coloque ela em um novo repositório do seu github
+
+4 - Clone um repositório seu criado anteriormente para a sua máquina 
+
+5 - Clone o seguinte repositório https://github.com/dionisio300/Turma-Python-218.2.git remova a origem remota do antigo dono e adicione a sua.
+
+Em todas as questões crie um novo arquivo txt com algum conteúdo para adiciona-lo no github
+
+https://dontpad.com/218/2/python/youth/gitAWS/aula1

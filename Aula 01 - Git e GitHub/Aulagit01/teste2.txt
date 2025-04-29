@@ -29,3 +29,7 @@ git push -u origin main
  git add . ou 'nome do arquivo'
  git commit -m 'Explicação das mudanças'
  git push
+
+ =========================================
+ git config --global user.name "seu user name"
+ git config --global user.email "Seu email"
