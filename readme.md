@@ -11,3 +11,17 @@
 **Negrito** ou __Negrito__
 
 ~~Texto Riscado~~
+
+# Listas
+
+* item 1
+* item 2
+* item 3
+
+- item 1
+- item 2
+- item 3
+
++ item 1
++ item 2
++ item 3
