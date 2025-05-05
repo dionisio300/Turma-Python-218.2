@@ -65,4 +65,4 @@ Olá
 - [X] Tarefa Concluída
 
 # Emojis
-:smile sorriso :rocket :thumbsup
+:smile: sorriso :rocket: Foguete :thumbsup:
