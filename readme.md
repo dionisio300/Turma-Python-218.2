@@ -7,5 +7,7 @@
 
 # Ênfase (Negrito, itálico, riscado)
 *Itálico* ou _itálico_
+
 **Negrito** ou __Negrito__
+
 ~~Texto Riscado~~
