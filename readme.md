@@ -12,7 +12,7 @@
 
 ~~Texto Riscado~~
 
-# Listas
+# Listas não ordenada
 
 * item 1
 * item 2
@@ -25,3 +25,9 @@
 + item 1
 + item 2
 + item 3
+
+# Lista ordenada
+
+1. Primeiro
+2. Segundo
+3. Terceiro
