@@ -51,6 +51,10 @@ Pesquisa no [google](https://www.google.com)
 
 # Linha horizontal
 
----
 Olá
 ---
+# Tabelas
+|Nome   |Idade  |Cidade |
+|-------|-------|-------|
+|Ana    |25     |Fortaleza|
+|João   |30     |Caucaia|
