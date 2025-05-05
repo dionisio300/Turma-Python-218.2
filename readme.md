@@ -63,3 +63,8 @@ Olá
 
 - [ ] Tarefa pendente
 - [X] Tarefa Concluída
+
+# Emojis
+:smile
+:rocket
+:thumbsup
