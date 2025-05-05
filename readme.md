@@ -31,3 +31,9 @@
 1. Primeiro
 2. Segundo
 3. Terceiro
+
+# Subitens (identação com 2 espaços ou tab)
+- Item
+    - Subitem 1.1
+    - Subitem 1.2
+    
