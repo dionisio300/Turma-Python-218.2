@@ -1,0 +1,11 @@
+ID_Entrega,Cliente,Tipo_Cliente,Distancia_KM,Tempo_Estimado_Min,Tempo_Real_Min,Forma_Pagamento,Valor_Total
+1,João Silva,Regular,4,30,28,Cartão,32.5
+2,Maria Souza,VIP,12,45,60,Dinheiro,75.0
+3,Lucas Lima,Regular,2,20,18,Cartão,20.0
+4,Fernanda Alves,Novo,8,35,40,Pix,40.0
+5,Bruno Rocha,VIP,15,50,45,Cartão,90.0
+6,Ana Clara,Novo,3,25,22,Dinheiro,25.0
+7,Ricardo Melo,Regular,10,40,50,Pix,60.0
+8,Camila Torres,VIP,7,30,28,Cartão,55.0
+9,Patrícia Gomes,Novo,5,30,35,Dinheiro,38.0
+10,Tiago Moreira,Regular,11,40,38,Cartão,70.0
