@@ -121,12 +121,99 @@ nomes=["Ana", "Bruno", "Carla", "Daniela", "Eva", "Fernanda", "Igor"]
 # 3. Escreva uma função que recebe uma lista de notas e retorna:
 # a média e o conceito (A: >= 9, B: >= 7, C: >= 5, D: <5)
 
-# 4. Dada a lista de notas de alunos, calcule a média apenas dos alunos que tiraram nota maior ou igual a 7
-
 # 5. Dada uma lista de dicionários com informações de pessoas, calcule a média das idades.
+dados=[
+{"nome": "Ana", "idade": 23},
+{"nome": "Bruno", "idade": 25},
+{"nome": "Carlos", "idade": 30},
+{"nome": "Diana", "idade": 20}
+]
+# Resultado
 # 6. A partir da mesma lista acima, filtre apenas as pessoas com idade acima de 24.
+# pip install pandas
+# pip install numpy
+
+# 1. Criando uma Series a partir de uma lista
+import pandas as pd
+valores = [10,20,30,40]
+# Criar a serie
+serie1 = pd.Series(valores)
+print(valores)
+print(serie1)
+
+# 2. Definindo um índice personalizado
+indices = ['a','b','c','d']
+serie2 = pd.Series(valores,index=indices)
+print(serie2['a'])
+
+# 3. Criando a partir de um dicionário
+
+dados = {
+    'Maça':14,
+    'Banana':10,
+    'Laranja':15
+}
+serie3 = pd.Series(dados,dtype=float)
+print(dados)
+print(serie3)
+
+# 4. Criando a partir de um valor escalar (repetido)
+
+valor = 1
+serie4 = pd.Series(valor,index=[0,1,2,3,4,5])
+
+print(serie4)
 
 
+dados = {
+    'nomes':['Alice','Bruno','Carlos'],
+    'Idades':[25,30,35],
+    'Cidade':['São Paulo', 'Fortaleza','Caucaia']
+}
 
+df1 = pd.DataFrame(dados)
+print(dados)
+print(df1)
 
+# Indices diferentes
+indices = ['a','b','c']
 
+df2 = pd.DataFrame(dados,index=indices)
+print(df2)
+
+# 3. Criando a partir de uma lista de dicionários
+dados2 = [
+    {'nome':'Alice','idade':25,'cidade':'São Paulo'},
+    {'nome':'Bruno','idade':35,'cidade':'Fortaleza'},
+    {'nome':'Carlos','idade':20,'cidade':'Caucaia'}
+]
+
+df3 = pd.DataFrame(dados2)
+print(df3)
+
+credit = pd.read_csv('credit_data.csv')
+print(credit)
+
+'''
+Atividades :
+Atividade 1: Crie uma lista com os nomes de cinco frutas e transforme essa lista em uma Series do pandas.
+
+Atividade 2: Crie uma lista com os valores de temperatura ao longo de 7 dias. Crie uma Series que use os dias da semana como índice.
+
+Atividade 3: Crie uma Series usando um dicionário onde as chaves são nomes de alunos e os valores são suas notas finais.
+
+Atividade 4: Crie uma Series com os números de 1 a 5 e defina índices personalizados em formato de letras.
+'''
+# Renomear Colunas
+
+credit.rename(columns={
+    'clientid': 'ID',
+    'income': 'Renda',
+    'age': 'idade',
+    'loan': 'Dívida',
+    'default': 'Inadimplente'
+}, inplace=True)
+
+print(credit)
+
+print(credit.describe())
