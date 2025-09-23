@@ -78,6 +78,17 @@ Faça um filtro que:
 2) Filtrar clientes com renda entre 40000 e 60000
 3) Usar o iloc para pegar a última linha e todas as colunas
 4) mostrar os geristros com idade > 50 ou dívida maior que 8000
-
 '''
+# 1
+print(dadosCredito.loc[dadosCredito['default'] == 1, ['clientid','age']])
+
+# 2
+print(dadosCredito.loc[(dadosCredito['income'] >= 40000) & (dadosCredito['income'] <= 60000)])
+
+# 3
+print(dadosCredito.iloc[-1,[0,2,4]])
+
+# 4
+print(dadosCredito.loc[(dadosCredito['age'] > 50) | (dadosCredito['loan'] > 8000)])
+
 
