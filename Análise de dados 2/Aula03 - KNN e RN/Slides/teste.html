@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tabela de parâmetros dos modelos</title>
+<style>
+  :root { --bg:#fff; --fg:#222; --muted:#666; --line:#e7e7e7; --accent:#f5f7ff; }
+  body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Helvetica Neue", sans-serif; margin: 24px; color: var(--fg); background: var(--bg); }
+  h1 { font-size: 20px; margin: 0 0 16px; color: var(--muted); font-weight: 600; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  thead th { text-align: left; padding: 12px; border-bottom: 2px solid var(--line); background: var(--accent); }
+  tbody td { padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tbody tr:nth-child(even) { background: #fafafa; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size: 12px; padding: 1px 4px; background: #f3f3f3; border-radius: 4px; }
+  .model { white-space: nowrap; }
+  .muted { color: var(--muted); }
+</style>
+</head>
+<body>
+
+<h1>Parâmetros dos modelos usados</h1>
+
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Modelo</th>
+      <th>Parâmetro</th>
+      <th>O que controla</th>
+      <th>Valores típicos ou possíveis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- GaussianNB -->
+    <tr>
+      <td class="model">GaussianNB</td>
+      <td><code>var_smoothing</code></td>
+      <td>Adiciona pequena variância para evitar problemas numéricos</td>
+      <td>padrão <code>1e-9</code>; testar entre <code>1e-9</code> e <code>1e-6</code></td>
+    </tr>
+
+    <!-- DecisionTreeClassifier -->
+    <tr>
+      <td class="model">DecisionTreeClassifier</td>
+      <td><code>criterion</code></td>
+      <td>Medida de qualidade da divisão</td>
+      <td><code>'gini'</code>, <code>'entropy'</code></td>
+    </tr>
+    <tr>
+      <td class="model">DecisionTreeClassifier</td>
+      <td><code>max_depth</code></td>
+      <td>Profundidade máxima da árvore</td>
+      <td><code>None</code> ou inteiros como 5, 10, 20</td>
+    </tr>
+    <tr>
+      <td class="model">DecisionTreeClassifier</td>
+      <td><code>min_samples_split</code></td>
+      <td>Mínimo de amostras para dividir um nó</td>
+      <td>padrão 2; considerar 5, 10, 20</td>
+    </tr>
+    <tr>
+      <td class="model">DecisionTreeClassifier</td>
+      <td><code>min_samples_leaf</code></td>
+      <td>Mínimo de amostras por folha</td>
+      <td>padrão 1; considerar 2–10</td>
+    </tr>
+    <tr>
+      <td class="model">DecisionTreeClassifier</td>
+      <td><code>max_features</code></td>
+      <td>Número de variáveis avaliadas por divisão</td>
+      <td><code>None</code>, <code>'sqrt'</code>, <code>'log2'</code> ou inteiro</td>
+    </tr>
+    <tr>
+      <td class="model">DecisionTreeClassifier</td>
+      <td><code>random_state</code></td>
+      <td>Reprodutibilidade</td>
+      <td>inteiro fixo, por exemplo 42</td>
+    </tr>
+
+    <!-- RandomForestClassifier -->
+    <tr>
+      <td class="model">RandomForestClassifier</td>
+      <td><code>n_estimators</code></td>
+      <td>Quantidade de árvores</td>
+      <td>100–500 (padrão 100)</td>
+    </tr>
+    <tr>
+      <td class="model">RandomForestClassifier</td>
+      <td><code>criterion</code></td>
+      <td>Medida de qualidade da divisão</td>
+      <td><code>'gini'</code>, <code>'entropy'</code></td>
+    </tr>
+    <tr>
+      <td class="model">RandomForestClassifier</td>
+      <td><code>max_depth</code></td>
+      <td>Profundidade máxima de cada árvore</td>
+      <td><code>None</code> ou inteiros como 10, 20, 30</td>
+    </tr>
+    <tr>
+      <td class="model">RandomForestClassifier</td>
+      <td><code>min_samples_split</code></td>
+      <td>Mínimo de amostras para dividir um nó</td>
+      <td>padrão 2; considerar 5–20</td>
+    </tr>
+    <tr>
+      <td class="model">RandomForestClassifier</td>
+      <td><code>min_samples_leaf</code></td>
+      <td>Mínimo de amostras por folha</td>
+      <td>padrão 1; considerar 2–10</td>
+    </tr>
+    <tr>
+      <td class="model">RandomForestClassifier</td>
+      <td><code>max_features</code></td>
+      <td>Número de variáveis por divisão</td>
+      <td><code>'sqrt'</code> (padrão em classificação), <code>'log2'</code>, inteiro</td>
+    </tr>
+    <tr>
+      <td class="model">RandomForestClassifier</td>
+      <td><code>bootstrap</code></td>
+      <td>Amostragem com reposição por árvore</td>
+      <td><code>True</code> ou <code>False</code></td>
+    </tr>
+    <tr>
+      <td class="model">RandomForestClassifier</td>
+      <td><code>class_weight</code></td>
+      <td>Peso das classes</td>
+      <td><code>None</code>, <code>'balanced'</code> ou dicionário <code>{classe: peso}</code></td>
+    </tr>
+    <tr>
+      <td class="model">RandomForestClassifier</td>
+      <td><code>n_jobs</code></td>
+      <td>Paralelismo</td>
+      <td><code>-1</code> usa todos os núcleos</td>
+    </tr>
+    <tr>
+      <td class="model">RandomForestClassifier</td>
+      <td><code>random_state</code></td>
+      <td>Reprodutibilidade</td>
+      <td>inteiro fixo, por exemplo 42</td>
+    </tr>
+
+    <!-- KNeighborsClassifier -->
+    <tr>
+      <td class="model">KNeighborsClassifier</td>
+      <td><code>n_neighbors</code></td>
+      <td>Número de vizinhos no voto</td>
+      <td>padrão 5; testar 3–15</td>
+    </tr>
+    <tr>
+      <td class="model">KNeighborsClassifier</td>
+      <td><code>weights</code></td>
+      <td>Peso dos vizinhos</td>
+      <td><code>'uniform'</code> ou <code>'distance'</code></td>
+    </tr>
+    <tr>
+      <td class="model">KNeighborsClassifier</td>
+      <td><code>algorithm</code></td>
+      <td>Método de busca dos vizinhos</td>
+      <td><code>'auto'</code>, <code>'ball_tree'</code>, <code>'kd_tree'</code>, <code>'brute'</code></td>
+    </tr>
+    <tr>
+      <td class="model">KNeighborsClassifier</td>
+      <td><code>p</code></td>
+      <td>Norma usada na distância de Minkowski</td>
+      <td><code>2</code> euclidiana (padrão), <code>1</code> Manhattan</td>
+    </tr>
+    <tr>
+      <td class="model">KNeighborsClassifier</td>
+      <td><code>metric</code></td>
+      <td>Métrica de distância</td>
+      <td><code>'minkowski'</code>, <code>'euclidean'</code>, <code>'manhattan'</code>, outras</td>
+    </tr>
+
+    <!-- MLPClassifier -->
+    <tr>
+      <td class="model">MLPClassifier</td>
+      <td><code>hidden_layer_sizes</code></td>
+      <td>Tamanho das camadas ocultas</td>
+      <td>tupla, ex.: <code>(32,16)</code>, <code>(64,32)</code>, <code>(5,5,5)</code></td>
+    </tr>
+    <tr>
+      <td class="model">MLPClassifier</td>
+      <td><code>activation</code></td>
+      <td>Função de ativação</td>
+      <td><code>'relu'</code> (padrão), <code>'tanh'</code>, <code>'logistic'</code>, <code>'identity'</code></td>
+    </tr>
+    <tr>
+      <td class="model">MLPClassifier</td>
+      <td><code>solver</code></td>
+      <td>Otimizador</td>
+      <td><code>'adam'</code> (padrão), <code>'sgd'</code>, <code>'lbfgs'</code></td>
+    </tr>
+    <tr>
+      <td class="model">MLPClassifier</td>
+      <td><code>learning_rate_init</code></td>
+      <td>Taxa de aprendizado inicial</td>
+      <td>padrão <code>0.001</code>; testar <code>0.0001</code> a <code>0.01</code></td>
+    </tr>
+    <tr>
+      <td class="model">MLPClassifier</td>
+      <td><code>alpha</code></td>
+      <td>Regularização L2</td>
+      <td>padrão <code>0.0001</code>; ajustar <code>1e-3</code> a <code>1e-1</code> se precisar</td>
+    </tr>
+    <tr>
+      <td class="model">MLPClassifier</td>
+      <td><code>batch_size</code></td>
+      <td>Tamanho do mini-lote</td>
+      <td><code>'auto'</code> ou valores como 16, 32, 64</td>
+    </tr>
+    <tr>
+      <td class="model">MLPClassifier</td>
+      <td><code>max_iter</code></td>
+      <td>Número máximo de épocas</td>
+      <td>padrão 200; você usou 1000–2000</td>
+    </tr>
+    <tr>
+      <td class="model">MLPClassifier</td>
+      <td><code>tol</code></td>
+      <td>Tolerância para melhora mínima do loss</td>
+      <td>padrão <code>1e-4</code>; menor → treina mais</td>
+    </tr>
+    <tr>
+      <td class="model">MLPClassifier</td>
+      <td><code>n_iter_no_change</code></td>
+      <td>Épocas sem melhora antes de parar</td>
+      <td>padrão 10; considerar 20–30</td>
+    </tr>
+    <tr>
+      <td class="model">MLPClassifier</td>
+      <td><code>early_stopping</code></td>
+      <td>Parada antecipada com validação</td>
+      <td><code>False</code> ou <code>True</code> (usa <code>validation_fraction</code>)</td>
+    </tr>
+    <tr>
+      <td class="model">MLPClassifier</td>
+      <td><code>validation_fraction</code></td>
+      <td>Porção do treino para validação</td>
+      <td>padrão 0.1 (ativo quando <code>early_stopping=True</code>)</td>
+    </tr>
+    <tr>
+      <td class="model">MLPClassifier</td>
+      <td><code>random_state</code></td>
+      <td>Reprodutibilidade</td>
+      <td>inteiro fixo, por exemplo 42</td>
+    </tr>
+    <tr>
+      <td class="model">MLPClassifier</td>
+      <td><code>verbose</code></td>
+      <td>Logs do treinamento</td>
+      <td><code>True</code> ou <code>False</code></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p class="muted">
+Observações rápidas: para KNN e MLP, padronize ou normalize as variáveis; para conjuntos desbalanceados, considere <code>class_weight='balanced'</code> (onde disponível) ou reamostragem; para relatórios fidedignos, avalie sempre em dados de teste ou via validação cruzada.
+</p>
+
+</body>
+</html>
