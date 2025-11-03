@@ -15,6 +15,10 @@ from sklearn.model_selection import train_test_split
 
 x_credit_data_treino, x_credit_data_teste, y_credit_data_treino, y_credit_data_teste = train_test_split(x_credit_data, y_credit_data, test_size=0.20, random_state=0)
 
+###############################################################################
+########################### Naive Bayes #######################################
+###############################################################################
+
 modelo_naive = GaussianNB()
 modelo_naive.fit(x_credit_data_treino, y_credit_data_treino)
 
@@ -31,7 +35,12 @@ from sklearn.metrics import confusion_matrix
 matriz_confusao = confusion_matrix(y_credit_data_teste, previsoes)
 print(matriz_confusao)
 
-# Arvore de decisão
+
+###############################################################################
+########################### Árvore de Decisão ################################
+###############################################################################
+
+
 from sklearn.tree import DecisionTreeClassifier
 
 classificador_arvore = DecisionTreeClassifier(criterion='entropy')
@@ -45,6 +54,44 @@ precisao_arvore = accuracy_score(y_credit_data_teste, previsoes_arvore)
 print(f"Árvore de Decisão: {precisao_arvore * 100}%")
 matriz_confusao = confusion_matrix(y_credit_data_teste, previsoes_arvore)
 print(matriz_confusao)
+
+#########################################################################
+################################### KNN #################################
+##########################################################################
+
+from sklearn.preprocessing import MinMaxScaler
+normalizacao = MinMaxScaler()
+x_credit_data_treino_normalizado = normalizacao.fit_transform(x_credit_data_treino)
+x_credit_data_teste_normalizado = normalizacao.fit_transform(x_credit_data_teste)
+
+from sklearn.neighbors import KNeighborsClassifier
+knn = KNeighborsClassifier(n_neighbors=3,metric='euclidean')
+knn.fit(x_credit_data_treino_normalizado,y_credit_data_treino)
+
+previsoes_knn = knn.predict(x_credit_data_teste_normalizado)
+precisao_knn = accuracy_score(y_credit_data_teste, previsoes_knn)
+
+print(f"KNN: {precisao_knn * 100}%")
+matriz_confusao = confusion_matrix(y_credit_data_teste, previsoes_knn)
+print(matriz_confusao)
+
+
+#########################################################################
+################################### MLP #################################
+##########################################################################
+
+from sklearn.neural_network import MLPClassifier
+
+mlp = MLPClassifier(hidden_layer_sizes=(32,32), verbose=True, early_stopping=False)
+mlp.fit(x_credit_data_treino_normalizado,y_credit_data_treino)
+previsoes_mlp = mlp.predict(x_credit_data_teste_normalizado)
+
+precisao_mlp = accuracy_score(y_credit_data_teste, previsoes_mlp)
+print(f"MLP: {precisao_mlp * 100}%")
+matriz_confusao = confusion_matrix(y_credit_data_teste, previsoes_mlp,)
+print(matriz_confusao)
+
+
 
 
 # Mostrar a árvore de decisão

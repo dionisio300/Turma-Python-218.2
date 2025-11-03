@@ -44,7 +44,7 @@ classificador.fit(x_census_treino, y_census_treino)
 previsoes = classificador.predict(x_census_teste)
 
 # Avaliar o modelo
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, confusion_matrix
 
 precisao = accuracy_score(y_census_teste, previsoes)
 print(f"A precisão do modelo é: {precisao * 100}%")
@@ -66,6 +66,22 @@ print(f"A precisão da árvore de decisão é: {precisao_arvore * 100}%")
 from sklearn import tree
 import matplotlib.pyplot as plt
 
-plt.figure(figsize=(12,8))
-tree.plot_tree(classificador_arvore, filled=True)
-plt.show()
+# plt.figure(figsize=(12,8))
+# tree.plot_tree(classificador_arvore, filled=True)
+# plt.show()
+
+from sklearn.preprocessing import MinMaxScaler
+normalizacao = MinMaxScaler()
+x_census_treino_normalizado = normalizacao.fit_transform(x_census_treino)
+x_census_teste_normalizado = normalizacao.transform(x_census_teste)
+
+from sklearn.neural_network import MLPClassifier
+
+mlp = MLPClassifier(hidden_layer_sizes=(100,50,20), early_stopping=False)
+mlp.fit(x_census_treino_normalizado,y_census_treino)
+previsoes_mlp = mlp.predict(x_census_teste_normalizado)
+
+precisao_mlp = accuracy_score(y_census_teste, previsoes_mlp)
+print(f"MLP: {precisao_mlp * 100}%")
+matriz_confusao = confusion_matrix(y_census_teste, previsoes_mlp,)
+print(matriz_confusao)
