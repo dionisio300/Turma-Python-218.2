@@ -58,7 +58,7 @@ print(census['occupation'].value_counts())
 # Elimina linhas com qualquer valor nulo
 census.dropna(inplace=True)
 
-# Elimina as linhas quetem uma coluna específica com valor nulo
+# Elimina as linhas que tem uma coluna específica com valor nulo
 # census.dropna(subset=['final-weight'],inplace=True)
 
 # Elimina colunas inteiras se tiverem nulos

@@ -70,8 +70,4 @@ flores1 = flores[flores['species'] == 'setosa']
 print(flores['species'].value_counts())
 
 
-
-
-
-
 plt.show()
