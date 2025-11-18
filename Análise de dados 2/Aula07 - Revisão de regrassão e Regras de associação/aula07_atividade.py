@@ -4,14 +4,21 @@ import numpy as np
 # Carregar o conjunto de dados
 housePrices = pd.read_csv(r"C:\Users\dioni\OneDrive\Área de Trabalho\Youth Data 218.02\Curso Data\218\Análise de dados 2\Aula06 - Regressão Linear e Polinomial\house_prices.csv")
 
-x_housePrices = housePrices.iloc[:,5].values
-y_housePrices = housePrices.iloc[:,2].values
+# Correlação das variáveis com o preço da casa
 
-print(x_housePrices,y_housePrices)
-correlacao = np.corrcoef(x_housePrices, y_housePrices)
-print("Coeficiente de correlação:\n", correlacao)
+housePrices_sem_data = housePrices.drop(columns=["date"])
+correlacao = housePrices_sem_data.corr()["price"].sort_values(ascending=False)
+print(correlacao)
 
-x_housePrices = x_housePrices.reshape(-1, 1)
+x_housePrices = housePrices.loc[:, ["sqft_living","grade","sqft_above","sqft_living15","bathrooms"]].values
+y_housePrices = housePrices.loc[:, "price"].values
+
+
+# print(x_housePrices,y_housePrices)
+# correlacao = np.corrcoef(x_housePrices, y_housePrices)
+# print("Coeficiente de correlação:\n", correlacao)
+
+# x_housePrices = x_housePrices.reshape(-1, 1)
 y_housePrices = y_housePrices.reshape(-1, 1)
 
 # Regressão Linear Simples
@@ -70,3 +77,16 @@ print(f"Escore R² Random Forest Regressor: {r2_randomForest}")
 
 # MLP Regressor
 from sklearn.neural_network import MLPRegressor
+RegressaoMLP = MLPRegressor(hidden_layer_sizes=(100,50), max_iter=10000, random_state=0,tol=0.000001)
+RegressaoMLP.fit(X_train, y_train)
+previsao_MLP = RegressaoMLP.predict(X_test)
+r2_MLP = RegressaoMLP.score(X_test, y_test)
+print(f"Escore R² MLP Regressor: {r2_MLP}")
+
+'''
+Escore R² Regressão Linear: 0.4830157820838963
+Escore R² Regressão Polinomial: 0.5303798781026394
+Escore R² Árvore de Regressão: 0.4977001887024409
+Escore R² Random Forest Regressor: 0.5064847299745407
+Escore R² MLP Regressor: 0.4801020085799399
+'''
